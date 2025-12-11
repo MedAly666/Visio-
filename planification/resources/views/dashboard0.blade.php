@@ -15,20 +15,15 @@
             }
         }
     @endphp
-    <div class="grid grid-cols-12 grid-rows-5 gap-10 w-[100%] h-screen p-10 pt-12">
+    <div class="grid grid-cols-12 grid-rows-5 gap-2 w-[100%] h-screen p-2">
         <div class="col-span-3 row-span-2 ">
             <div class="card card-compact w-[100%] h-[100%] bg-base-100 shadow-xl">
-                <figure>
-                    <p class="text-4xl font-bold bg-base-200 rounded-lg p-4">First year</p>
-                </figure>
-                <div class="stats overflow-hidden mt-2">
-
+                <p class="text-xl font-bold rounded-lg p-2">First year</p>
+                <div class="overflow-hidden mt-2">
                     <div class="stat place-items-center">
                         <div class="stat-title">Sessions</div>
                         <div class="stat-value">{{ $week_1->sessions->count() }}</div>
                         <div class="stat-desc">
-
-
                         </div>
                     </div>
 
@@ -40,7 +35,7 @@
                     </div>
                 </div>
                 <div class="card-body flex flex-col justify-around p-4 items-center">
-                    <h2 class="card-title text-3xl font-bold ">{{ $week_1->week_type }}
+                    <h2 class="card-title text-lg font-bold ">{{ $week_1->week_type }}
                         @if ($week_1->week_type == 'Cours')
                             ({{ $week_1->week_number }})
                         @endif
@@ -50,16 +45,15 @@
                     <div class="flex flex-wrap gap-2">
                         @if ($week_1->sport_exam == 1)
                             <span
-                                class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-blue-600 text-blue-600 dark:text-blue-500">Sport
+                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-blue-600 text-blue-600 dark:text-blue-500">Sport
                                 exam</span>
                         @endif
                         @if ($week_1->cc == 1)
                             <span
-                                class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-red-500 text-red-500">Controls</span>
+                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-red-500 text-red-500">Controls</span>
                         @endif
                     </div>
-                    <div class="card-actions mt-10 justify-end">
-
+                    <div class="card-actions mt-2 justify-end">
                         @if ($week_1->week_type == 'Cours' || $week_1->week_type == 'Cours Magistreaux')
                             @if ($week_1->cc == 1)
                                 <a href="{{ route('weeks.controls', $week_1->id) }}">
@@ -107,9 +101,7 @@
         </div>
         <div class="col-span-3 row-span-2  col-start-4">
             <div class="card card-compact w-[100%] h-[100%] bg-base-100 shadow-xl">
-                <figure>
-                    <p class="text-4xl font-bold bg-base-200 rounded-lg p-4">Second year</p>
-                </figure>
+                    <p class="text-xl font-bold rounded-lg p-2">Second year</p>
                 <div class="stats overflow-hidden mt-2">
 
                     <div class="stat place-items-center">
@@ -127,25 +119,25 @@
                     </div>
                 </div>
                 <div class="flex flex-col justify-around p-4 items-center">
-                    <h2 class=" text-3xl font-bold    ">{{ $week_2->week_type }}
+                    <h2 class=" text-lg font-bold    ">{{ $week_2->week_type }}
                         @if ($week_2->week_type == 'Cours')
                             ({{ $week_2->week_number }})
                         @endif
                     </h2>
-                    <h2 class="text-xl">Semester : {{ $week_2->semester }}</h2>
+                    <h2 class="text-lg">Semester : {{ $week_2->semester }}</h2>
 
                     <div class="flex flex-wrap gap-2">
                         @if ($week_2->sport_exam == 1)
                             <span
-                                class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-blue-600 text-blue-600 dark:text-blue-500">Sport
+                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-blue-600 text-blue-600 dark:text-blue-500">Sport
                                 Exam</span>
                         @endif
                         @if ($week_2->cc == 1)
                             <span
-                                class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-red-500 text-red-500">Controls</span>
+                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-red-500 text-red-500">Controls</span>
                         @endif
                     </div>
-                    <div class="card-actions mt-10 justify-end">
+                    <div class="card-actions mt-2 justify-end">
 
                         @if ($week_2->week_type == 'Cours' || $week_2->week_type == 'Cours Magistreaux')
                             @if ($week_2->cc == 1)
@@ -161,7 +153,7 @@
                                 </a>
                             @endif
                             <a href="{{ route('weeks.additives', $week_2->id) }}">
-                                <button class="btn btn-base-300 "> Additives
+                                <button class="btn btn-base-300 text-sm"> Additives
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -170,7 +162,7 @@
 
                                 </button>
                             </a>
-                            <a href="{{ route('weeks.show', $week_2->id) }}"><button class="btn   btn-primary"> Calendar
+                            <a href="{{ route('weeks.show', $week_2->id) }}"><button class="btn btn-primary"> Calendar
                                     <svg xmlns="http://www.w3.org2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -194,9 +186,7 @@
         </div>
         <div class="col-span-3 row-span-2 col-start-7">
             <div class="card card-compact w-[100%] h-[100%] bg-base-100 shadow-xl">
-                <figure>
-                    <p class="text-4xl font-bold bg-base-200 rounded-lg p-4">Third year</p>
-                </figure>
+                <p class="text-md font-bold rounded-lg p-2">Third year</p>
                 <div class="stats mt-2 overflow-hidden">
 
                     <div class="stat place-items-center">
@@ -214,7 +204,7 @@
                     </div>
                 </div>
                 <div class="card-body flex flex-col justify-around items-center p-4">
-                    <h2 class="card-title text-3xl font-bold">{{ $week_3->week_type }}
+                    <h2 class="card-title text-lg font-bold">{{ $week_3->week_type }}
                         @if ($week_3->week_type == 'Cours')
                            ({{ $week_3->week_number }})
                         @endif
@@ -224,15 +214,15 @@
                     <div class="flex flex-wrap gap-2">
                         @if ($week_3->sport_exam == 1)
                             <span
-                                class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-blue-600 text-blue-600 dark:text-blue-500">Sport
+                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-blue-600 text-blue-600 dark:text-blue-500">Sport
                                 exam</span>
                         @endif
                         @if ($week_3->cc == 1)
                             <span
-                                class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-red-500 text-red-500">Controls</span>
+                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-red-500 text-red-500">Controls</span>
                         @endif
                     </div>
-                    <div class="card-actions mt-10 justify-end">
+                    <div class="card-actions mt-2 justify-end">
 
                         @if ($week_3->week_type == 'Cours' || $week_3->week_type == 'Cours Magistreaux')
                             @if ($week_3->cc == 1)
@@ -284,63 +274,59 @@
             {{-- <div  >
             </div> --}}
         </div>
-        <div class="col-span-3  row-span-3 col-start-10 row-start-1">
+        <div class="col-span-3  row-span-3 col-start-10 row-start-1 bg-base-100 shadow-xl">
             <ul class="max-w-[100%] flex flex-col">
                 <li
-                    class="inline-flex items-center gap-x-2 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
+                    class="inline-flex items-center gap-x-2 p-2 text-sm font-medium  border border-gray-200 text-gray-200 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
                     <div class="flex justify-between w-full">
                         1st year additives
                         <span
-                            class="inline-flex items-center py-1 px-2 rounded-full text-xs font-medium bg-blue-500 text-white">{{ $week_1->additives->count() }}</span>
+                            class="inline-flex items-center p-2 rounded-full text-xs font-medium bg-blue-500 text-white">{{ $week_1->additives->count() }}</span>
                     </div>
                 </li>
                 <li
-                    class="inline-flex items-center gap-x-2 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
+                    class="inline-flex items-center gap-x-2 p-2 text-sm font-medium  border border-gray-200 text-gray-200 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
                     <div class="flex justify-between w-full">
                         2nd year additives
                         <span
-                            class="inline-flex items-center py-1 px-2 rounded-full text-xs font-medium bg-blue-500 text-white">{{ $week_2->additives->count() }}</span>
+                            class="inline-flex items-center p-2 rounded-full text-xs font-medium bg-blue-500 text-white">{{ $week_2->additives->count() }}</span>
                     </div>
                 </li>
                 <li
-                    class="inline-flex items-center gap-x-2 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
+                    class="inline-flex items-center gap-x-2 p-2 text-sm font-medium  border border-gray-200 text-gray-200 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
                     <div class="flex justify-between w-full">
                         3rd year additives
                         <span
-                            class="inline-flex items-center py-1 px-2 rounded-full text-xs font-medium bg-blue-500 text-white">{{ $week_3->additives->count() }}</span>
+                            class="inline-flex items-center p-2 rounded-full text-xs font-medium bg-blue-500 text-white">{{ $week_3->additives->count() }}</span>
                     </div>
                 </li>
             </ul>
-            <div class="flex flex-col h-full justify-stretch items-stretch py-8 ">
-                <div class="w-full h-[50%] ">
-                    <div class="w-full border-2 rounded-2xl h-full">
+            <div class="flex flex-col h-fit justify-stretch items-stretch py-2 ">
+                    <div class="w-full border-2 rounded-lg h-full py-2">
                         @if ($holiday != null)
                             <div class="h-[50%] flex  flex-col  justify-center items-center">
-                                <p class="text-2xl">This Week's Holiday</p>
-                                <p class="text-3xl font-bold mt-2">{{ $holiday->holiday_name }} in
+                                <p class="text-md">This Week's Holiday</p>
+                                <p class="text-md font-bold mt-2">{{ $holiday->holiday_name }} in
                                     {{ $holiday->holiday_date }}</p>
                             </div>
                         @else
                             <div class="h-[50%] flex justify-center items-center">
-                                <p class="text-2xl text-gray-500">No Holidaay in This Week</p>
+                                <p class="text-md text-gray-500">No Holidaay in This Week</p>
                             </div>
                         @endif
                         <hr>
                         @if (true)
                             <div class="h-[50%] flex justify-center items-center ">
-                                <p class="text-2xl text-gray-500">No Occasions in This Week</p>
+                                <p class="text-md text-gray-500">No Occasions in This Week</p>
                             </div>
                         @else
                             <div class="h-[50%] flex justify-center items-center ">
-                                <p class="text-2xl text-gray-500">No Occasions in This Week</p>
+                                <p class="text-xl text-gray-500">No Occasions in This Week</p>
                             </div>
                         @endif
 
 
                     </div>
-
-                </div>
-
             </div>
         </div>
         <div class="col-span-3 row-span-2 col-start-7 row-start-3">
@@ -366,14 +352,14 @@
                     <div class="stat">
                         <div class="stat-title">Total Sessions</div>
                         <div class="stat-value">{{ $sessions->count() }}</div>
-                        <div class="stat-desc text-xl">{{ $cours }} Cours , {{ $Tds }} Tds,
+                        <div class="stat-desc text-lg">{{ $cours }} Cours , {{ $Tds }} Tds,
                             {{ $Tps }} Tps</div>
                     </div>
 
                     <div class="stat">
                         <div class="stat-title">Total Absences</div>
                         <div class="stat-value">{{ $global_week->sessions->where('absented', 1)->count() }}</div>
-                        <div class="stat-desc text-xl">{{ $global_week->sessions->where('caughtup', 1)->count() }} Caught
+                        <div class="stat-desc text-lg">{{ $global_week->sessions->where('caughtup', 1)->count() }} Caught
                             up</div>
                     </div>
 
