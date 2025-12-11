@@ -16,7 +16,7 @@ class Config extends Model
 
     public function schoolyear()
     {
-        return $this->belongsTo(Schoolyear::class,'current_schoolyear_id');
+        return $this->belongsTo(SchoolYear::class,'current_schoolyear_id');
     }
     public function global_week()
     {

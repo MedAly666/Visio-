@@ -1,4 +1,4 @@
-<table class="h-[100%]  w-[100%] p-0 table-fixed" style="width: calc({{ $company->sections->count() }}*130px);"
+<table class="h-[100%]  w-full p-0 table-fixed" style="width: calc({{ $company->sections->count() }}*130px);"
     id="company-day">
 
     @php
@@ -228,7 +228,7 @@
                             </div>
                             </div>
                         @else
-                            <div class="relative sectionparentofform h-[100%] flex justify-center items-center">
+                            <div class="relative sectionparentofform h-full flex justify-center items-center">
                                 <button
                                     class="flex form-display-button shadow-md hover:scale-125 duration-300  btn section-button items-center justify-center  rounded-full bg-slate-300 hover:bg-yellow-50 z-0">
                                     <img src="/svg/pen-thin.svg" class="h-6 w-6" alt="">
@@ -251,7 +251,7 @@
                                     @else
                                         <div class="sector hidden">PR</div>
                                     @endif
-                                    <div class=" form-section h-[80%] w-[100%] flex  flex-col justify-around items-center">
+                                    <div class=" form-section h-[80%] w-full flex  flex-col justify-around items-center">
                                         <a
                                             class="absolute top-4 right-4 section-cancel-button hover:cursor-pointer hover:scale-125 duration-200  h-6 w-6 rounded-full">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="hover:shadow-lg" viewBox="0 0 256 256"
@@ -326,7 +326,7 @@
                                     @else
                                         <div class="sector hidden">PR</div>
                                     @endif
-                                    <div class="form-section h-[100%] w-[100%] flex  flex-col justify-around items-center">
+                                    <div class="form-section h-full w-full flex  flex-col justify-around items-center">
                                         <a
                                             class="absolute top-4 right-4 company-cancel-button font-bold hover:cursor-pointer   hover:scale-125 duration-200 h-6 w-6 rounded-full">
                                             <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" class="hover:shadow-xl" fill="currentColor">

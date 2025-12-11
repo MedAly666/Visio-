@@ -1,4 +1,4 @@
-<section class=" w-[100%] px-10 mt-40 " id="#docs">
+<section class=" w-full px-10 mt-40 " id="#docs">
     <div class="mx-20">
         <h1 class="text-6xl font-bold text-gray-800 capitalize ">explore our <br> awesome <span class="underline decoration-blue-500">Features</span></h1>
 

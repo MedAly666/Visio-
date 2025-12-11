@@ -8,13 +8,13 @@
 
 
 @section('content')
-    <div class="container flex justify-center items-center flex-col w-[100%]  mt-20">
+    <div class="container flex justify-center items-center flex-col w-full  mt-20">
         <div>
             <p class="text-7xl font-weight-bold" style="font-weight: 700">All Holidays of This Year</p>
         </div>
-        <div class="card mt-10 mb-10 w-[90%]">
-            <div class="card-header ">Manage Occasions</div>
-            <div class="card-body">
+        <div class="bg-white border border-gray-200 rounded-lg shadow mt-10 mb-10 w-[90%] p-4">
+            <div class="text-3xl text-center font-semibold text-gray-900 mb-4">Manage Occasions</div>
+            <div>
 
                 <table class="table table-bordered display" id="occasions">
                     <thead>
@@ -32,55 +32,65 @@
                 </table>
             </div>
             <div class="w-full flex justify-end">
-                <button class="btn m-4" onclick="my_modal_1.showModal()">Add Holiday</button>
-                <dialog id="my_modal_1" class="modal">
-                    <div class="modal-box">
-                        <h3 class="font-bold text-lg">Hello!</h3>
-                        <div class="flex flex-col mt-10 justify-center items-stretch w-full">
-                            <form class="flex flex-col gap-3 justify-center items-stretch" id="holiday-form">
-                                <div class="flex items-center justify-between  w-full">
-                                    <label class="font-bold w-36">Students :</label>
-                                   <select name="students[]" id="students" multiple class="select  w-full select-bordered"  style="width: 100%" multiselect-search="true">
-                                    @foreach ($battalions as $battalion)
-                                        <option value="B_{{$battalion->id}}">Battalion : {{$battalion->battalion}}</option>
-                                        @foreach ($battalion->companies as $company)
-                                            <option value="C_{{$company->id}}" data-parent="B_{{$battalion->id}}">Company : {{$company->company}} ({{$company->sector}})</option>
-                                            @foreach($company->sections as $section) 
-                                                <option value="S_{{$section->id}}" data-parent="C_{{$company->id}}">Section : {{$section->section}}</option>
+                <button data-modal-target="occasion-modal" data-modal-toggle="occasion-modal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 m-4 focus:outline-none" type="button">Add Occasion</button>
+
+                <!-- Flowbite Modal -->
+                <div id="occasion-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                                <h3 class="text-lg font-semibold text-gray-900">Add Occasion</h3>
+                                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="occasion-modal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="p-4 md:p-5">
+                            <form class="space-y-4" id="holiday-form">
+                                <div>
+                                    <label for="students" class="block mb-2 text-sm font-medium text-gray-900">Students</label>
+                                    <select name="students[]" id="students" multiple class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" style="width: 100%" multiselect-search="true">
+                                        @foreach ($battalions as $battalion)
+                                            <option value="B_{{$battalion->id}}">Battalion : {{$battalion->battalion}}</option>
+                                            @foreach ($battalion->companies as $company)
+                                                <option value="C_{{$company->id}}" data-parent="B_{{$battalion->id}}">Company : {{$company->company}} ({{$company->sector}})</option>
+                                                @foreach($company->sections as $section) 
+                                                    <option value="S_{{$section->id}}" data-parent="C_{{$company->id}}">Section : {{$section->section}}</option>
+                                                @endforeach
                                             @endforeach
                                         @endforeach
-                                    @endforeach
-                                  </select>
+                                    </select>
                                 </div>
-                                <div class="flex items-center justify-between   w-full">
-                                    <label class="font-bold w-36">
-                                        Occasion :
-                                    </label>
-                                    <input id="occasion_name" class="input w-full input-bordered" type="text" name="occasion_name">
+                                <div>
+                                    <label for="occasion_name" class="block mb-2 text-sm font-medium text-gray-900">Occasion</label>
+                                    <input id="occasion_name" type="text" name="occasion_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                 </div>
-                                <div class="flex items-center justify-between  w-full">
-                                    <label class="font-bold w-36">Date :</label>
-                                    <input id="occasion_date" class="input w-full input-bordered"  type="date" name="occasion_date">
+                                <div>
+                                    <label for="occasion_date" class="block mb-2 text-sm font-medium text-gray-900">Date</label>
+                                    <input id="occasion_date" type="date" name="occasion_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                 </div>
-                               
-                                <div class="flex items-center justify-between  w-full">
-                                    <label class="font-bold w-36">Times :</label>
-                                    <select name="timings[]" id="timings" multiple class="select  w-full select-bordered"  style="width: 100%" multiselect-search="true">
+                                <div>
+                                    <label for="timings" class="block mb-2 text-sm font-medium text-gray-900">Times</label>
+                                    <select name="timings[]" id="timings" multiple class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" style="width: 100%" multiselect-search="true">
                                         @foreach ($timings as $timing)
                                             <option value="{{$timing->id}}"> {{$timing->session_start}}->{{$timing->session_finish}} </option>
                                         @endforeach
                                     </select>
-                                </div>` 
+                                </div>
                             </form>
-                        </div>
-                        <div class="modal-action mt-5">
-                            <form method="dialog">
-                                <button class="btn btn-primary mr-2" id="occasion-add">Add</button>
-                                <button class="btn">Close</button>
-                            </form>
+                            <!-- Modal footer -->
+                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                                <button type="button" id="occasion-add" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add</button>
+                                <button data-modal-hide="occasion-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Close</button>
+                            </div>
                         </div>
                     </div>
-                </dialog>
+                </div>
             </div>
         </div>
     @endsection

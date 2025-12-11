@@ -5,7 +5,7 @@
 @endpush
 @section('content')
     <div class="hidden" id="additive_id">{{ $additive->id }}</div>
-    <div class="h-[100%] w-[100%] flex flex-col justify-start p-6 items-center">
+    <div class="h-[100%] w-full flex flex-col justify-start p-6 items-center">
         <div class="headers  font-bold flex flex-col justify-center space-y-2 items-center">
             <h1 class="text-4xl">Battalion : <span class="text-red-600"> {{ $battalion->battalion }}</span></h1>
             <h1 class="text-3xl">Week :{{ $week->week_type }} <span class="text-red-600">({{ $week->week_number }})</span>
@@ -53,7 +53,7 @@
                                 {{ $rect->timing->session_finish }}</td>
                             <td class="px-6 py-4">{{ $rect->room->room }}</td>
                             <td class="px-2 py-4 "><a href="#"
-                                    class="delete-rectification font-medium text-red-600 hover:no-underline  dark:text-blue-500 p-4  duration-300  hover:bg-red-50 hover:rounded-xl h-[100%] w-[100%]">Delete</a>
+                                    class="delete-rectification font-medium text-red-600 hover:no-underline  dark:text-blue-500 p-4  duration-300  hover:bg-red-50 hover:rounded-xl h-full w-[100%]">Delete</a>
                             </td>
                         </tr>
                     @endforeach
@@ -131,7 +131,7 @@
                                 <td class="px-6 py-4">{{ $catchup->room->room }}</td>
                                 <td class="px-6 py-4">{{ $catchup->catchup_date }}</td>
                                 <td class="px-2 py-4 "><a href="#"
-                                        class="delete-rectification font-medium text-red-600 hover:no-underline  dark:text-blue-500 p-4  duration-300  hover:bg-red-50 hover:rounded-xl h-[100%] w-[100%]">Delete</a>
+                                        class="delete-rectification font-medium text-red-600 hover:no-underline  dark:text-blue-500 p-4  duration-300  hover:bg-red-50 hover:rounded-xl h-full w-[100%]">Delete</a>
                                 </td>
                             </tr>
                         @endif
@@ -208,7 +208,7 @@
                                 @endforeach
                             </td>
                             <td class="px-2 py-4 "><a href="#"
-                                    class="delete-rectification font-medium text-red-600 hover:no-underline  dark:text-blue-500 p-4  duration-300  hover:bg-red-50 hover:rounded-xl h-[100%] w-[100%]">Delete</a>
+                                    class="delete-rectification font-medium text-red-600 hover:no-underline  dark:text-blue-500 p-4  duration-300  hover:bg-red-50 hover:rounded-xl h-full w-[100%]">Delete</a>
                             </td>
                         </tr>
                     @endforeach
@@ -267,7 +267,7 @@
                         <p class="text-2xl">Select Date</p>
                         <input type="date" name="session_date" id="additional-date" class="input ">
                     </div>
-                    <div class="flex justify-around w-[100%] items-center ">
+                    <div class="flex justify-around w-full items-center ">
                         
                         <div class="flex flex-col justify-center items-center">
                             <p class="text-2xl">Select Module</p>

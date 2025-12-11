@@ -4,6 +4,7 @@ import Alpine from "alpinejs";
 import AOS from "aos";
 import "preline";
 import "aos/dist/aos.css"; // You can also use <link> for styles
+import 'flowbite';
 // ..
 AOS.init();
 window.Alpine = Alpine;

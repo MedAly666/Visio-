@@ -11,7 +11,7 @@
     <tr>
         {{-- foreach company --}}
         @foreach ($companies as $company)
-            <td class="text-center  h-[100%] " >
+            <td class="text-center  h-full " >
                 @include('weeks.company-header',['company'=>$company])
             </td>
         @endforeach

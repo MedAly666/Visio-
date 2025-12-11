@@ -7,7 +7,7 @@
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 @endpush
 @section('content')
-    <div class="container flex justify-center items-center flex-col w-[100%]  mt-20">
+    <div class="container flex justify-center items-center flex-col w-full  mt-20">
         <div>
             <p class="text-7xl font-weight-bold" style="font-weight: 700">All modules </p>
         </div>

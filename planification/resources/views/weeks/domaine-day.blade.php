@@ -1,4 +1,4 @@
-<table class="h-[100%] z-0 w-[100%] border-2">
+<table class="h-[100%] z-0 w-full border-2">
     <tr class="w-[100%]">
         @foreach ($companies as $company)
             <td class="border-l-2">

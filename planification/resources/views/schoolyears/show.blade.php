@@ -4,14 +4,14 @@
     <link href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css" rel="stylesheet">
 @endpush
 @section('content')
-    <div class="  h-[130vh] w-[100%]  flex flex-col justify-between mt-10 items-center p-20">
+    <div class="  h-[130vh] w-full  flex flex-col justify-between mt-10 items-center p-20">
         <div class="flex flex-col justify-center items-center w-[100%]">
             {{-- schoolyars datatable --}}
             <p class="text-6xl font-bold ">School year : {{ $schoolyear->schoolyear }} </p>
             <div class="card mt-4 rounded-2xl  z-0  mb-20  w-[50%]">
                 <div class="card-header z-0 text-2xl ">Battalions</div>
-                <div class="card-body w-[100%] z-0">
-                    <table class="z-0  w-[100%]  display" id="battalions">
+                <div class="card-body w-full z-0">
+                    <table class="z-0  w-full  display" id="battalions">
                         <thead>
                             <th>Battalion</th>
                             <th>Action</th>
@@ -21,8 +21,8 @@
             </div>
             <div class="card mt-4 rounded-2xl  z-0  mb-20  w-[50%]">
                 <div class="card-header z-0 text-2xl ">Modules</div>
-                <div class="card-body w-[100%] z-0">
-                    <table class="z-0  w-[100%]  display" id="modules">
+                <div class="card-body w-full z-0">
+                    <table class="z-0  w-full  display" id="modules">
                         <thead>
                             <th>Battalion</th>
                             <th>Module</th>
@@ -40,7 +40,7 @@
             <div class="card mt-4  rounded-2xl  z-0  mb-20  w-[100%]">
 
                 <div class="card-header z-0 text-2xl ">Manage School year Calendar</div>
-                <div class="card-body w-[100%] z-0">
+                <div class="card-body w-full z-0">
                     <table class="z-0 relative display text-center table" id="global_weeks">
                         <thead>
                             <th class="incluce">N°</th>
@@ -61,7 +61,7 @@
                     </table>
                 </div>
             </div>
-            <div class="relative flex flex-col justify-center items-center mb-20 w-[100%] ">
+            <div class="relative flex flex-col justify-center items-center mb-20 w-full ">
                 <button class=" bg-slate-400 rounded-lg add-button  p-2 z-0" id="form-button">Add</button>
                 <form action="{{ route('global_weeks.store', ['id' => $schoolyear->id]) }}" enctype="multipart/form-data"
                     method="POST"

@@ -1,4 +1,4 @@
-<table class="h-[100%]  w-[100%] p-0 " id="company-day">
+<table class="h-[100%]  w-full p-0 " id="company-day">
 
     @php
         $sections = $company->sections;
@@ -44,9 +44,9 @@
         @endif
 
         @if ($isRectifiedCour == true || $HasControl == true)
-            <tr class=" h-[160px] w-[100%] ">
+            <tr class=" h-[160px] w-full ">
                 <td colspan="3">
-                    <div class="card w-[100%] h-[100%] ">
+                    <div class="card w-full h-full ">
                         <div class="card-body items-center text-center">
                             @if ($isRectifiedCour == true)
                                 <h2 class="card-title">Rectification Here!</h2>
@@ -90,7 +90,7 @@
                 Rattrapage d'une absence
             </div>
         @else
-            <tr class="relative company-tr   h-[160px] w-[100%] ">
+            <tr class="relative company-tr   h-[160px] w-full ">
 
                 @if ($sessions->where('sessionable_type', 'App\\Models\\Company')->where('session_date', $date)->where('timing_id', $timing->id)->where('sessionable_id', $company->id)->isNotEmpty())
                     @php
@@ -105,7 +105,7 @@
                     <td colspan="3" class=" z-0 session ">
 
                         <div
-                            class="h-[150px] cours-div  z-0 w-[100%]  flex card   
+                            class="h-[150px] cours-div  z-0 w-full  flex card   
                              flex-col rounded-xl justify-center items-center">
                             @if ($c->rectified == true && $c->absented == false)
                                 <span class=" badge badge-accent">rectified</span>
@@ -481,7 +481,7 @@
                                                     <div class="sector hidden">PR</div>
                                                 @endif
                                                 <div
-                                                    class=" form-section  py-4 w-[100%] flex  flex-col justify-around items-center">
+                                                    class=" form-section  py-4 w-full flex  flex-col justify-around items-center">
 
                                                     <div>
                                                         <h2 class="text-xl">Session : TP </h2>
@@ -572,9 +572,9 @@
                                             @endif
 
                                                                                         @if ($isRectified)
-                                            <div class="= w-[100%] h-[100%] ">
+                                            <div class="= w-full h-full ">
                                                 <div
-                                                    class="flex w-[100%] h-[100%]  flex-col justify-center  text-center">
+                                                    class="flex w-full h-full  flex-col justify-center  text-center">
                                                     <h2 class="font-bold">Rectification Here!</h2>
                                                     @php
                                                         $Recty = $sessions
@@ -594,7 +594,7 @@
                                             </div>
 @else
 <div
-                                                class="relative sectionparentofform h-[100%] flex justify-center items-center">
+                                                class="relative sectionparentofform h-full flex justify-center items-center">
 
                                                 <button onclick="ShowTdForm(this)"
                                                     class=" form-display-button hover:scale-125 duration-300  btn section-button ">
@@ -640,7 +640,7 @@
 <div class="sector hidden">PR</div>
 @endif
                                                     <div
-                                                        class=" form-section h-[80%] w-[100%] flex  flex-col justify-around items-center">
+                                                        class=" form-section h-[80%] w-full flex  flex-col justify-around items-center">
 
                                                         <div>
                                                             <h2 class=""> {{ $section->section }} students :
@@ -771,7 +771,7 @@
                                 <input type="hidden" name="sessionable_type" value="App\Models\Company">
                                 <input type="hidden" name="sessionable_id" value="{{ $company->id }}">
                                 <input type="hidden" name="session_type" value="cour">
-                                <div class="form-section h-[100%]  flex  flex-col justify-around items-center">
+                                <div class="form-section h-full  flex  flex-col justify-around items-center">
                                     <div>
                                         <h2 class="">Company : {{ $company->company }} </h2>
                                         <h2> {{ $date }}</h2>
@@ -815,7 +815,7 @@
                         </td>
                         <td class="result hidden" colspan="3">
                             <div
-                                class="h-[150px]  z-0 w-[100%]  flex 
+                                class="h-[150px]  z-0 w-full  flex 
                              flex-col  justify-center items-center">
                                 <a href="" class="btn teacher-a">
                                 </a>

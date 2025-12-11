@@ -1,40 +1,18 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <title>Document</title>
-</head> --}}
-
-{{-- <body>
-    <style>
-        body {
-            font-family: "Poppins", sans-serif;
-        }
-    </style> --}}
 @extends('default')
 @push('header')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css" rel="stylesheet">
 @endpush
 @section('content')
-    <div class="container flex justify-center items-center flex-col w-[100%]  mt-20">
+    <div class="container flex justify-center items-center flex-col w-full  mt-0">
         <div>
-            <p class="text-7xl font-weight-bold  " style="font-weight: 700">All Teachers </p>
+            <p class="text-2xl font-weight-bold text-gray-800" style="font-weight: 700">All Teachers </p>
         </div>
-        <div class="card p-4 mt-20 w-[90%] mb-20">
-            <div class="card-header text-3xl text-center ">Manage Teachers</div>
-            <div class="card-body w-[100%]">
+        <div class="bg-white border border-gray-200 rounded-lg shadow p-4 mt-20 w-[90%] mb-20">
+            <div class="text-3xl text-center font-semibold text-gray-900 mb-4">Manage Teachers</div>
+            <div class="w-[100%]">
                 {{-- {!! $dataTab->table() !!} --}}
-                <table class="table table-bordered w-[100%] display" id="teachers">
+                <table class="table table-bordered w-full display" id="teachers">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -53,10 +31,9 @@
                                 <td>{{ $teacher->department->department }}</td>
                                 <td>
                                     <a href="{{ route('teachers.show', ['id' => $teacher->id]) }}"
-                                        class="edit btn btn-info btn-sm rounded-l">View</a>
-                                    <a href="javascript:void(0)" class="edit btn btn-primary btn-sm rounded-lg">Edit</a>
-                                    <a href="javascript:void(0)" class="edit btn btn-danger btn-sm rounded-lg">Delete</a>
-
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none">View</a>
+                                    <a href="javascript:void(0)" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none ml-2">Edit</a>
+                                    <a href="javascript:void(0)" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none ml-2">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -139,24 +116,29 @@
                         top2Start: {
                             buttons: [{
                                 extend: 'copyHtml5',
-                                text: '<i class="fa fa-files-o bg-base-200 btn">Copy</i>',
-                                titleAttr: 'Copy'
+                                text: '<i class="fa fa-files-o">Copy</i>',
+                                titleAttr: 'Copy',
+                                className: 'text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none'
                             }, {
                                 extend: 'csvHtml5',
-                                text: '<i class="fa fa-file-excel-o btn">CSV</i>',
-                                titleAttr: 'CSV'
+                                text: '<i class="fa fa-file-excel-o">CSV</i>',
+                                titleAttr: 'CSV',
+                                className: 'text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none'
                             }, {
                                 extend: 'excelHtml5',
-                                text: '<i class="fa fa-file-excel-o btn">Excel</i>',
-                                titleAttr: 'Excel'
+                                text: '<i class="fa fa-file-excel-o">Excel</i>',
+                                titleAttr: 'Excel',
+                                className: 'text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none'
                             }, {
                                 extend: 'pdfHtml5',
-                                text: '<i class="fa fa-file-pdf-o bg-base-200 btn">Pdf</i>',
-                                titleAttr: 'PDF'
+                                text: '<i class="fa fa-file-pdf-o">Pdf</i>',
+                                titleAttr: 'PDF',
+                                className: 'text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none'
                             }, {
                                 extend: 'print',
-                                text: '<i class="fa fa-file-excel-o btn">Print</i>',
-                                titleAttr: 'Print'
+                                text: '<i class="fa fa-file-excel-o">Print</i>',
+                                titleAttr: 'Print',
+                                className: 'text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none'
                             }]
                         }
                     },

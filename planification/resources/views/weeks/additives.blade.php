@@ -6,17 +6,17 @@
 @endpush
 
 @section('content')
-    <div class="container flex justify-center items-center space-y-3 flex-col w-[100%]  mt-20">
+    <div class="container flex justify-center items-center space-y-3 flex-col w-full  mt-20">
         <div>
 
             <p class="text-7xl font-weight-bold flex items-center justify-center  " style="font-weight: 700">Additives </p>
             <p class="text-4xl">{{ $week->global_week->start_week_date }} -> {{ $week->global_week->end_week_date }} </p>
         </div>
-        <div class="card mt-20 w-[80%] mb-20">
-            <div class="card-header ">Manage Teachers</div>
-            <div class="card-body w-[100%]">
+        <div class="bg-white border border-gray-200 rounded-lg shadow mt-20 w-[80%] mb-20 p-4">
+            <div class="text-3xl text-center font-semibold text-gray-900 mb-4">Manage Additives</div>
+            <div class="w-[100%]">
                 {{-- {!! $dataTab->table() !!} --}}
-                <table class="table table-bordered w-[100%] display" id="additives">
+                <table class="table table-bordered w-full display" id="additives">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -32,11 +32,10 @@
 
                                 <td>
                                     <a href="{{ route('additives.show', ['id' => $additive->id]) }}"
-                                        class="edit btn btn-info btn-sm rounded-l">View</a>
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none">View</a>
                                     <a href="{{ route('additives.delete', ['id' => $additive->id]) }}"
-                                        class="edit btn btn-primary btn-sm rounded-lg">Edit</a>
-                                    {{-- <a href="{{ route('additives.delete',['id'=>$additive->id])}}" class="edit btn btn-danger btn-sm rounded-lg">Delete</a> --}}
-
+                                        class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none ml-2">Edit</a>
+                                    {{-- <a href="{{ route('additives.delete',['id'=>$additive->id])}}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1.5 focus:outline-none ml-2">Delete</a> --}}
                                 </td>
                             </tr>
                         @endforeach
@@ -49,8 +48,8 @@
             <form action="{{ route('weeks.additives_add', ['id' => $week->id]) }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
-                <button
-                    class="p-2 btn hover:bg-slate-50 hover:text-gray-900 hover:border-2  bg-gray-700  text-slate-50 rounded-2xl w-20">Add</button>
+                <button type="submit"
+                    class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Add</button>
             </form>
 
 

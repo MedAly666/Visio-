@@ -29,12 +29,12 @@
         }
     </style>
     
-    <div class="flex w-screen" id="app">
-        <div class="w-[92px] h-screen sticky bg-base-100 bg-opacity-80 backdrop-blur transition-shadow duration-100 [transform:translate3d(0,0,0)] 
-        shadow-sm  top-0 z-10 ">
+    <div class="flex w-screen bg-gray-50" id="app">
+        <div class="w-[92px] h-screen sticky bg-white bg-opacity-95 backdrop-blur transition-shadow duration-100 [transform:translate3d(0,0,0)] 
+        shadow-sm border-r border-gray-200 top-0 z-10 ">
             @include('inc.sidebar')
         </div>
-        <div class="w-[100%] pt-2 z-0 flex justify-center items-center ">
+        <div class="w-full pt-2 z-0 flex justify-center items-center bg-gray-50">
             @yield('content')
         </div>
     </div>

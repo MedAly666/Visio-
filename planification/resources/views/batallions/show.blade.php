@@ -17,7 +17,7 @@
             <p class="text-6xl font-bold ">Battalion {{ $battalion->battalion }} </p>
             <div class="card mt-4 rounded-2xl  z-0  mb-20  w-[80%]">
                 <div class="card-header z-0 text-2xl ">Companies</div>
-                <div class="card-body w-[100%] z-0">
+                <div class="card-body w-full z-0">
                     <table class="z-0 display text-center " id="companies">
                         <thead>
                             <th class="text-center">Company</th>
@@ -33,7 +33,7 @@
             <div class="card w-[50%] h-[70%] p-4 mb-20 rounded-2xl">
                 <div class="card-header bg-white text-center text-4xl z-0   ">Add Company</div>
                 <form action="{{ route('battalions.store_companies', ['id' => $battalion->id]) }}"
-                    class="flex space-y-3 justify-around h-[100%] items-center  flex-col">
+                    class="flex space-y-3 justify-around h-full items-center  flex-col">
                     @csrf
                     <div class="w-[50%]  rounded-xl flex flex-col justify-center p-2 items-center">
                         <label for="sc" class="text-xl ">Company Sector</label>

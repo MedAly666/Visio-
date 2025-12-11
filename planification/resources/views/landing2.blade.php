@@ -13,10 +13,10 @@
 <body>
     <!-- Hero -->
     <div 
-        class="relative h-[100%] overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/polygon-bg-element.svg')] before:bg-no-repeat before:bg-top before:bg-cover before:size-full before:-z-[1] before:transform before:-translate-x-1/2 ">
+        class="relative h-full overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/polygon-bg-element.svg')] before:bg-no-repeat before:bg-top before:bg-cover before:size-full before:-z-[1] before:transform before:-translate-x-1/2 ">
         <div class="absolute top-20 right-5 h-[200px] w-[300px]">
             <p
-                class="text-6xl h-[100%] font-[700] bg-clip-text bg-gradient-to-tl from-blue-400 to-violet-400 text-transparent">
+                class="text-6xl h-full font-[700] bg-clip-text bg-gradient-to-tl from-blue-400 to-violet-400 text-transparent">
                 <span id="element"></span>
             </p>
         </div>

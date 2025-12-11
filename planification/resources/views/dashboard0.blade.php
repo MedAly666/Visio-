@@ -15,27 +15,27 @@
             }
         }
     @endphp
-    <div class="grid grid-cols-12 grid-rows-5 gap-2 w-[100%] h-screen p-2">
-        <div class="col-span-3 row-span-2 ">
-            <div class="card card-compact w-[100%] h-[100%] bg-base-100 shadow-xl">
+    <div class="grid grid-cols-12 grid-rows-5 gap-2 w-full h-screen p-4">
+        <div class="col-span-3 row-span-3 ">
+            <div class="w-[100%] h-full bg-white border border-gray-200 rounded-lg shadow">
                 <p class="text-xl font-bold rounded-lg p-2">First year</p>
-                <div class="overflow-hidden mt-2">
-                    <div class="stat place-items-center">
-                        <div class="stat-title">Sessions</div>
-                        <div class="stat-value">{{ $week_1->sessions->count() }}</div>
-                        <div class="stat-desc">
+                <div class="overflow-hidden mt-2 flex items-center justify-center">
+                    <div class="text-center p-4"> 
+                        <div class="text-sm text-gray-500">Sessions</div>
+                        <div class="text-lg font-bold text-gray-900">{{ $week_1->sessions->count() }}</div>
+                        <div class="text-sm text-gray-500">_
                         </div>
                     </div>
 
-                    <div class="stat place-items-center">
-                        <div class="stat-title">Absences</div>
-                        <div class="stat-value text-primary">{{ $week_1->absences->count() }}</div>
-                        <div class="stat-desc text-primary">{{ $week_1->sessions->where('caughtup', 1)->count() }} Caught
+                    <div class="text-center p-4">
+                        <div class="text-sm text-gray-500">Absences</div>
+                        <div class="text-lg font-bold text-blue-600">{{ $week_1->absences->count() }}</div>
+                        <div class="text-sm text-blue-600">{{ $week_1->sessions->where('caughtup', 1)->count() }} Caught
                             up</div>
                     </div>
                 </div>
-                <div class="card-body flex flex-col justify-around p-4 items-center">
-                    <h2 class="card-title text-lg font-bold ">{{ $week_1->week_type }}
+                <div class="flex flex-col justify-around p-4 items-center">
+                    <h2 class="text-lg font-bold text-gray-900">{{ $week_1->week_type }}
                         @if ($week_1->week_type == 'Cours')
                             ({{ $week_1->week_number }})
                         @endif
@@ -45,7 +45,7 @@
                     <div class="flex flex-wrap gap-2">
                         @if ($week_1->sport_exam == 1)
                             <span
-                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-blue-600 text-blue-600 dark:text-blue-500">Sport
+                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-blue-600 text-blue-600">Sport
                                 exam</span>
                         @endif
                         @if ($week_1->cc == 1)
@@ -53,11 +53,11 @@
                                 class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-red-500 text-red-500">Controls</span>
                         @endif
                     </div>
-                    <div class="card-actions mt-2 justify-end">
+                    <div class="flex flex-wrap gap-2 mt-2 justify-end">
                         @if ($week_1->week_type == 'Cours' || $week_1->week_type == 'Cours Magistreaux')
                             @if ($week_1->cc == 1)
                                 <a href="{{ route('weeks.controls', $week_1->id) }}">
-                                    <button class="btn btn-base-300 "> Controls
+                                    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center"> Controls
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -68,7 +68,7 @@
                                 </a>
                             @endif
                             <a href="{{ route('weeks.additives', $week_1->id) }}">
-                                <button class="btn btn-base-300 "> Additives
+                                <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center"> Additives
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -77,7 +77,7 @@
 
                                 </button>
                             </a>
-                            <a href="{{ route('weeks.show', $week_1->id) }}"><button class="btn   btn-primary"> Calendar
+                            <a href="{{ route('weeks.show', $week_1->id) }}"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none inline-flex items-center"> Calendar
                                     <svg xmlns="http://www.w3.org2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -86,8 +86,8 @@
                                 </button>
                             </a>
                         @elseif($week_1->week_type == 'Examens')
-                            <a href="{{ route('weeks.show', $week_1->id) }}"><button class="btn   btn-primary"> Exams
-                                    <svg xmlns="http://www.w3.org2000/svg" fill="none" viewBox="0 0 24 24"
+                            <a href="{{ route('weeks.show', $week_1->id) }}"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none inline-flex items-center"> Exams
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
@@ -99,27 +99,27 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-3 row-span-2  col-start-4">
-            <div class="card card-compact w-[100%] h-[100%] bg-base-100 shadow-xl">
+        <div class="col-span-3 row-span-3  col-start-4">
+            <div class="w-[100%] h-full bg-white border border-gray-200 rounded-lg shadow">
                     <p class="text-xl font-bold rounded-lg p-2">Second year</p>
-                <div class="stats overflow-hidden mt-2">
+                <div class="overflow-hidden mt-2 flex items-center justify-center">
 
-                    <div class="stat place-items-center">
-                        <div class="stat-title">Sessions</div>
-                        <div class="stat-value">{{ $week_2->sessions->count() }}</div>
-                        <div class="stat-desc">
+                    <div class="text-center p-4">
+                        <div class="text-sm text-gray-500">Sessions</div>
+                        <div class="text-lg font-bold text-gray-900">{{ $week_2->sessions->count() }}</div>
+                        <div class="text-sm text-gray-500">_
                         </div>
                     </div>
 
-                    <div class="stat place-items-center">
-                        <div class="stat-title">Absences</div>
-                        <div class="stat-value text-primary">{{ $week_2->absences->count() }}</div>
-                        <div class="stat-desc text-primary">{{ $week_2->sessions->where('caughtup', 1)->count() }} Caught
+                    <div class="text-center p-4">
+                        <div class="text-sm text-gray-500">Absences</div>
+                        <div class="text-lg font-bold text-blue-600">{{ $week_2->absences->count() }}</div>
+                        <div class="text-sm text-blue-600">{{ $week_2->sessions->where('caughtup', 1)->count() }} Caught
                             up</div>
                     </div>
                 </div>
                 <div class="flex flex-col justify-around p-4 items-center">
-                    <h2 class=" text-lg font-bold    ">{{ $week_2->week_type }}
+                    <h2 class="text-lg font-bold text-gray-900">{{ $week_2->week_type }}
                         @if ($week_2->week_type == 'Cours')
                             ({{ $week_2->week_number }})
                         @endif
@@ -129,7 +129,7 @@
                     <div class="flex flex-wrap gap-2">
                         @if ($week_2->sport_exam == 1)
                             <span
-                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-blue-600 text-blue-600 dark:text-blue-500">Sport
+                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-blue-600 text-blue-600">Sport
                                 Exam</span>
                         @endif
                         @if ($week_2->cc == 1)
@@ -137,12 +137,12 @@
                                 class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-red-500 text-red-500">Controls</span>
                         @endif
                     </div>
-                    <div class="card-actions mt-2 justify-end">
+                    <div class="flex flex-wrap gap-2 mt-2 justify-end">
 
                         @if ($week_2->week_type == 'Cours' || $week_2->week_type == 'Cours Magistreaux')
                             @if ($week_2->cc == 1)
                                 <a href="{{ route('weeks.controls', $week_2->id) }}">
-                                    <button class="btn btn-base-300 "> Controls
+                                    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center"> Controls
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -153,7 +153,7 @@
                                 </a>
                             @endif
                             <a href="{{ route('weeks.additives', $week_2->id) }}">
-                                <button class="btn btn-base-300 text-sm"> Additives
+                                <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center"> Additives
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -162,7 +162,7 @@
 
                                 </button>
                             </a>
-                            <a href="{{ route('weeks.show', $week_2->id) }}"><button class="btn btn-primary"> Calendar
+                            <a href="{{ route('weeks.show', $week_2->id) }}"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none inline-flex items-center"> Calendar
                                     <svg xmlns="http://www.w3.org2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -171,8 +171,8 @@
                                 </button>
                             </a>
                         @elseif($week_2->week_type == 'Examens')
-                            <a href="{{ route('weeks.show', $week_2->id) }}"><button class="btn   btn-primary"> Exams
-                                    <svg xmlns="http://www.w3.org2000/svg" fill="none" viewBox="0 0 24 24"
+                            <a href="{{ route('weeks.show', $week_2->id) }}"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none inline-flex items-center"> Exams
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
@@ -184,27 +184,27 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-3 row-span-2 col-start-7">
-            <div class="card card-compact w-[100%] h-[100%] bg-base-100 shadow-xl">
+        <div class="col-span-3 row-span-3 col-start-7 row-start-1">
+            <div class="w-[100%] h-full bg-white border border-gray-200 rounded-lg shadow">
                 <p class="text-md font-bold rounded-lg p-2">Third year</p>
-                <div class="stats mt-2 overflow-hidden">
+                <div class="mt-2 overflow-hidden flex items-center justify-center">
 
-                    <div class="stat place-items-center">
-                        <div class="stat-title">Sessions</div>
-                        <div class="stat-value">{{ $week_3->sessions->count() }}</div>
-                        <div class="stat-desc">
+                    <div class="text-center p-4">
+                        <div class="text-sm text-gray-500">Sessions</div>
+                        <div class="text-lg font-bold text-gray-900">{{ $week_3->sessions->count() }}</div>
+                        <div class="text-sm text-gray-500">_
                         </div>
                     </div>
 
-                    <div class="stat place-items-center">
-                        <div class="stat-title">Absences</div>
-                        <div class="stat-value text-primary">{{ $week_3->absences->count() }}</div>
-                        <div class="stat-desc text-primary">{{ $week_3->sessions->where('caughtup', 1)->count() }} Caught
+                    <div class="text-center p-4">
+                        <div class="text-sm text-gray-500">Absences</div>
+                        <div class="text-lg font-bold text-blue-600">{{ $week_3->absences->count() }}</div>
+                        <div class="text-sm text-blue-600">{{ $week_3->sessions->where('caughtup', 1)->count() }} Caught
                             up</div>
                     </div>
                 </div>
-                <div class="card-body flex flex-col justify-around items-center p-4">
-                    <h2 class="card-title text-lg font-bold">{{ $week_3->week_type }}
+                <div class="flex flex-col justify-around items-center p-4">
+                    <h2 class="text-lg font-bold text-gray-900">{{ $week_3->week_type }}
                         @if ($week_3->week_type == 'Cours')
                            ({{ $week_3->week_number }})
                         @endif
@@ -214,7 +214,7 @@
                     <div class="flex flex-wrap gap-2">
                         @if ($week_3->sport_exam == 1)
                             <span
-                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-blue-600 text-blue-600 dark:text-blue-500">Sport
+                                class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-blue-600 text-blue-600">Sport
                                 exam</span>
                         @endif
                         @if ($week_3->cc == 1)
@@ -222,12 +222,12 @@
                                 class="inline-flex items-center gap-x-1.5  p-2  rounded-full text-xs font-medium border border-red-500 text-red-500">Controls</span>
                         @endif
                     </div>
-                    <div class="card-actions mt-2 justify-end">
+                    <div class="flex flex-wrap gap-2 mt-2 justify-end">
 
                         @if ($week_3->week_type == 'Cours' || $week_3->week_type == 'Cours Magistreaux')
                             @if ($week_3->cc == 1)
                                 <a href="{{ route('weeks.controls', $week_3->id) }}">
-                                    <button class="btn btn-base-300 "> Controls
+                                    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center"> Controls
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -238,7 +238,7 @@
                                 </a>
                             @endif
                             <a href="{{ route('weeks.additives', $week_3->id) }}">
-                                <button class="btn btn-base-300 "> Additives
+                                <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center"> Additives
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -247,7 +247,7 @@
 
                                 </button>
                             </a>
-                            <a href="{{ route('weeks.show', $week_3->id) }}"><button class="btn   btn-primary"> Calendar
+                            <a href="{{ route('weeks.show', $week_3->id) }}"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none inline-flex items-center"> Calendar
                                     <svg xmlns="http://www.w3.org2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -256,8 +256,8 @@
                                 </button>
                             </a>
                         @elseif($week_3->week_type == 'Examens')
-                            <a href="{{ route('weeks.show', $week_3->id) }}"><button class="btn   btn-primary"> Exams
-                                    <svg xmlns="http://www.w3.org2000/svg" fill="none" viewBox="0 0 24 24"
+                            <a href="{{ route('weeks.show', $week_3->id) }}"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none inline-flex items-center"> Exams
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
@@ -269,12 +269,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-6 row-span-3 col-start-1 row-start-3 p-4   bg-base-100 shadow-xl" id="barChart">
+        <div class="col-span-6 row-span-3 col-start-1 row-start-4 p-4 bg-white border border-gray-200 rounded-lg shadow" id="barChart">
             
             {{-- <div  >
             </div> --}}
         </div>
-        <div class="col-span-3  row-span-3 col-start-10 row-start-1 bg-base-100 shadow-xl">
+        <div class=" p-2 col-span-3  row-span-3 col-start-10 row-start-1 bg-white border border-gray-200 rounded-lg shadow">
             <ul class="max-w-[100%] flex flex-col">
                 <li
                     class="inline-flex items-center gap-x-2 p-2 text-sm font-medium  border border-gray-200 text-gray-200 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
@@ -329,44 +329,44 @@
                     </div>
             </div>
         </div>
-        <div class="col-span-3 row-span-2 col-start-7 row-start-3">
-            <div class="h-[100%] w-[100%] ">
+        <div class="col-span-3 row-span-2 col-start-7 row-start-4">
+            <div class="h-[100%] w-full ">
                 <div id="bar-chart" class="w-full h-full"></div>
 
             </div>
         </div>
-        <div class="col-span-3 row-span-2 col-start-10 row-start-3">
-            <div class="h-[100%] w-[100%] ">
+        <div class="col-span-3 row-span-2 col-start-10 row-start-4">
+            <div class="h-[100%] w-full ">
                 <div id="radialchart" class="w-full h-full"></div>
             </div>
         </div>
-        <div class="col-span-6 row-span-1 col-start-7 row-start-5">
-            <div class="h-[100%] w-[100%] ">
-                <div class="stats h-[100%] w-[100%] bg-base-100 stats-vertical lg:stats-horizontal shadow">
+        <div class="col-span-6 row-span-1 col-start-7 row-start-6">
+            <div class="h-[100%] w-full ">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow flex-col lg:flex-row">
                     @php
                         $sessions = $global_week->sessions;
                         $cours = $sessions->where('session_type', 'cour')->count();
                         $Tds = $sessions->where('session_type', 'td')->count();
                         $Tps = $sessions->where('session_type', 'tps')->count();
                     @endphp
-                    <div class="stat">
-                        <div class="stat-title">Total Sessions</div>
-                        <div class="stat-value">{{ $sessions->count() }}</div>
-                        <div class="stat-desc text-lg">{{ $cours }} Cours , {{ $Tds }} Tds,
+                    <div class="flex-1 text-center p-2">
+                        <div class="text-sm text-gray-500">Total Sessions</div>
+                        <div class="text-md font-bold text-gray-900">{{ $sessions->count() }}</div>
+                        <div class="text-md text-gray-600">{{ $cours }} Cours , {{ $Tds }} Tds,
                             {{ $Tps }} Tps</div>
                     </div>
 
-                    <div class="stat">
-                        <div class="stat-title">Total Absences</div>
-                        <div class="stat-value">{{ $global_week->sessions->where('absented', 1)->count() }}</div>
-                        <div class="stat-desc text-lg">{{ $global_week->sessions->where('caughtup', 1)->count() }} Caught
+                    <div class="flex-1 text-center p-2">
+                        <div class="text-sm text-gray-500">Total Absences</div>
+                        <div class="text-md font-bold text-gray-900">{{ $global_week->sessions->where('absented', 1)->count() }}</div>
+                        <div class="text-md text-gray-600">{{ $global_week->sessions->where('caughtup', 1)->count() }} Caught
                             up</div>
                     </div>
 
-                    <div class="stat">
-                        <div class="stat-title">Total Aditives</div>
-                        <div class="stat-value">{{ $additives }}</div>
-                        <div class="stat-desc">{{ $additionals }} Additional</div>
+                    <div class="flex-1 text-center p-4">
+                        <div class="text-sm text-gray-500">Total Aditives</div>
+                        <div class="text-md font-bold text-gray-900">{{ $additives }}</div>
+                        <div class="text-md text-gray-600">{{ $additionals }} Additional</div>
                     </div>
 
                 </div>

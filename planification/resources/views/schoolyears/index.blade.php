@@ -6,7 +6,7 @@
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 @endpush
 @section('content')
-    <div class="flex flex-col items-center justify-center w-[100%] overflow-y-scroll">
+    <div class="flex flex-col items-center justify-center w-full overflow-y-scroll">
         
         
         <div class="flex flex-col justify-center items-center w-[80%]">

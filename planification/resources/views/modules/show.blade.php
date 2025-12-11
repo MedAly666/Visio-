@@ -12,7 +12,7 @@
 @endpush
 
 @section('content')
-    <div class="container  flex justify-center items-center flex-col w-[100%] relative  mt-20">
+    <div class="container  flex justify-center items-center flex-col w-full relative  mt-20">
         <a href="{{ route('modules.index') }}">
             <button
                 class="absolute top-5 left-5 bg-slate-500 text-gray-100 border-slate-500 border-2 hover:text-gray-950 rounded-3xl text-xl hover:bg-slate-50 h-20 w-40">
@@ -140,7 +140,7 @@
                         render: function(data, type, row) {
 
                             var seances =
-                                '<div class="flex justify-around items-center h-[100%] w-[100%]">';
+                                '<div class="flex justify-around items-center h-full w-[100%]">';
                             if (row.cours == true) {
                                 seances +=
                                     '<span class="p-1 bg-green-400 rounded-full text-center">cours</span>';

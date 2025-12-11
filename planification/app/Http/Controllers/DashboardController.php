@@ -17,7 +17,7 @@ class DashboardController extends Controller
     public function index()
     {
         $today = date('Y-m-d');
-        // $global_week = GlobalWeek::where('start_week_date','<=',$today)->where('end_week_date','>=',$today)->first();
+        //$global_week = GlobalWeek::where('start_week_date','<=',$today)->where('end_week_date','>=',$today)->first();
         $global_week = GlobalWeek::find(Config::find(1)->current_global_week_id);
         $holiday = Holiday::whereDate('holiday_date','<=',date('Y-m-d', strtotime('+7 days', strtotime($global_week->start_week_date))))->whereDate('holiday_date','>=',$global_week->start_week_date)->first();
         $schoolyear_id = SchoolYear::find(Config::find(1)->current_schoolyear_id)->id;
